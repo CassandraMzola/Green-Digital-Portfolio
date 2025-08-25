@@ -1,0 +1,25 @@
+.techstack {
+  background-color: #112d4e;
+  padding: 60px 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 40px auto;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.techstack h2 {
+  color: #fca311;
+  margin-bottom: 20px;
+}
+
+.techstack ul {
+  list-style: none;
+  padding: 0;
+}
+
+.techstack li {
+  color: #f5f5f5;
+  margin: 10px 0;
+  font-size: 1.1rem;
+}

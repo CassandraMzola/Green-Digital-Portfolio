@@ -1,0 +1,67 @@
+/* src/styles/hero.css */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px 100px 50px;
+  text-align: left;
+  background-color: #0a1f3c; /* Navy matches global */
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: gold;
+}
+
+.hero .bio {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeIn 2s forwards 2.5s;
+  margin-bottom: 30px;
+}
+.hero .cta-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #fca311;
+  color: #0b1835;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero .cta-button:hover {
+  background-color: #ffb347;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.highlight {
+  color: gold;
+}
+.hero-right {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  position: relative;
+}
+.hero-left {
+  max-width: 600px;
+  margin-right: 60px; /* space between text and right-side icons */
+  text-align: left;    /* keep text left-justified */
+  padding-top: -50px;   /* move text slightly up */
+}
+
