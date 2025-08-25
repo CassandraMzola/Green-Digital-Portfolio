@@ -1,0 +1,25 @@
+.credits {
+  font-size: 0.9rem;
+  color: #f5f5f5;
+  text-align: center;
+}
+
+.credits a {
+  color: #fca311;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.credits a:hover {
+  color: #ffffff;
+}
+
+/* Shrink Credits section and remove extra space */
+#credits {
+  min-height: auto !important;
+  padding: 20px 0;
+  width: 100%;
+  text-align: center;
+}
+
+
