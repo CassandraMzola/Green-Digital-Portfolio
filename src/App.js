@@ -7,45 +7,52 @@ import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import TechStack from "./components/TechStack";
 import Contact from "./components/Contact";
+import Credits from "./components/Credits";
+import SocialLinks from "./components/SocialLinks";
 import "./styles/global.css";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
+      <SocialLinks /> {/* fixed bottom-left */}
 
-      <section id="hero">
-        <HeroSection />
-      </section>
+      <main>
+        <section id="hero">
+          <HeroSection />
+        </section>
 
-      <section id="about">
-        <h2 className="section-heading">About Me</h2>
-        <About />
-      </section>
+        <section id="about">
+          <About />
+        </section>
 
-      <section id="experience">
-        <h2 className="section-heading">Experience</h2>
-        <Experience />
-      </section>
+        <section id="experience">
+          <Experience />
+        </section>
 
-      <section id="projects">
-        <h2 className="section-heading">Projects</h2>
-        <Projects />
-      </section>
+        <section id="projects">
+          <Projects />
+        </section>
 
-      <section id="techstack">
-        <h2 className="section-heading">Tech Stack</h2>
-        <TechStack />
-      </section>
+        <section id="techstack">
+          <TechStack />
+        </section>
 
-      <section id="contact">
-        <h2 className="section-heading">Contact</h2>
-        <Contact />
-      </section>
+        <section id="contact">
+          <Contact />
+        </section>
+
+        <section id="credits">
+          <Credits />
+        </section>
+      </main>
     </div>
   );
 }
 
 export default App;
+
+
+
 
 
