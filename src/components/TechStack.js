@@ -1,40 +1,94 @@
-// src/components/TechStack.js
-import React from "react";
-import { motion } from "framer-motion";
-import { SiReact, SiTailwindcss, SiPostgresql, SiPython, SiTableau,SiMicrosoftpowerpoint, // we'll use Power BI logo workaround below
-  SiMicrosoftexcel  } from "react-icons/si";
-  
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "../styles/techstack.css";
+import { RiFileExcel2Fill } from "react-icons/ri";
+import { SiPostgresql, SiPython, SiTableau } from "react-icons/si";
+import { FaChartBar } from "react-icons/fa";
 
-const icons = [
-  { id: 1, Icon: SiReact, name: "React.js", color: "#61DAFB" },
-  { id: 2, Icon: SiTailwindcss, name: "Tailwind", color: "#38BDF8" },
-  { id: 3, Icon: SiPostgresql, name: "PostgreSQL", color: "#336791" },
-  { id: 4, Icon: SiPython, name: "Python", color: "#3776AB" },
-  { id: 5, Icon: SiTableau, name: "Tableau", color: "#E97627" },
-  { id: 6, Icon: SiTableau, name: "PowerBI", color: "#E97627" },
-  { id: 7, Icon: SiTableau, name: "Excel", color: "#E97627" },
+gsap.registerPlugin(ScrollTrigger);
+
+const techStackData = [
+  { name: "Excel", icon: <RiFileExcel2Fill />, color: "#217346" },
+  { name: "Power BI", icon: <SiTableau />, color: "#E97627" }, // Placeholder
+  { name: "PostgreSQL", icon: <SiPostgresql />, color: "#336791" },
+  { name: "Python", icon: <SiPython />, color: "#3776AB" },
+  { name: "Statistics", icon: <FaChartBar />, color: "#FF9900" },
 ];
 
-function TechStack() {
+export default function TechStack() {
+  const techStackRef = useRef(null);
+
+  useEffect(() => {
+    const icons = techStackRef.current.querySelectorAll(".tech-icon-container");
+
+    // Animate section title
+    gsap.fromTo(".tech-title",
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#tech-stack",
+          start: "top 90%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Animate icons with stagger
+    gsap.fromTo(icons,
+      { scale: 0.1, y: -50, opacity: 0 },
+      {
+        scale: 1,
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.2,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: "#tech-stack",
+          start: "top 75%",
+        },
+      }
+    );
+  }, []);
+
+  const handleIconHover = (e, enter) => {
+    const target = e.currentTarget;
+    if (enter) {
+      gsap.to(target, { y: -5, scale: 1.1, duration: 0.3, ease: "power2.out" });
+      gsap.to(target.querySelector(".tech-icon"), { color: "var(--green-bright)", duration: 0.3 });
+    } else {
+      gsap.to(target, { y: 0, scale: 1, duration: 0.3, ease: "power2.out" });
+      gsap.to(target.querySelector(".tech-icon"), { color: target.dataset.color, duration: 0.3 });
+    }
+  };
+
   return (
-    <div className="py-16 text-center bg-gray-50">
-      <h2 className="section-heading">Tech Stack</h2>
-      <div className="flex flex-wrap justify-center gap-10">
-        {icons.map(({ id, Icon, name, color }) => (
-          <motion.div
-            key={id}
-            className="p-6 rounded-2xl shadow-lg bg-white"
-            whileHover={{ scale: 1.2, rotate: 5 }}
-            animate={{ y: [0, -10, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+    <section id="tech-stack" ref={techStackRef}>
+      <div className="section-header">
+        <span className="section-title tech-title">Tech Stack</span>
+      </div>
+
+      <div className="tech-grid-container">
+        {techStackData.map((tool) => (
+          <div
+            key={tool.name}
+            className="tech-icon-container"
+            data-color={tool.color}
+            title={tool.name}
+            onMouseEnter={(e) => handleIconHover(e, true)}
+            onMouseLeave={(e) => handleIconHover(e, false)}
           >
-            <Icon size={60} color={color} />
-            <p className="mt-2 text-sm font-medium">{name}</p>
-          </motion.div>
+            <div className="tech-icon" style={{ color: tool.color }}>
+              {tool.icon}
+            </div>
+          </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
-
-export default TechStack;

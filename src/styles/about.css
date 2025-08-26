@@ -1,3 +1,5 @@
+/* src/styles/about.css */
+
 .about-section {
   min-height: 80vh;
   background-color: #0a1f3c;
@@ -5,15 +7,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; /* left-align container */
+  align-items: flex-start;
   padding: 100px 100px 50px;
-  text-align: left; /* left-align text */
+  text-align: left;
+  font-family: 'Segoe UI', sans-serif; /* match Hero section */
 }
 
-.about-heading {
+.section-heading {
   font-size: 2rem;
   color: gold;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 /* Highlight keywords */
@@ -22,22 +25,62 @@
   font-weight: bold;
 }
 
-/* Animation initial state */
+/* Paragraphs */
+.about-text {
+  max-width: 700px;
+  line-height: 1.6;
+  font-size: 1.1rem; /* match Hero section */
+  margin-bottom: 1.5rem;
+}
+
+/* Animate fade-in */
 .animate {
   opacity: 0;
   transform: translateX(-50px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* When visible */
 .animate.show {
   opacity: 1;
   transform: translateX(0);
 }
 
-.about-text {
-  max-width: 700px;
-  line-height: 1.6;
-  font-size: 1.1rem;
-  margin-bottom: 1.2rem;
+/* Button container */
+.about-buttons {
+  margin-top: 2rem; /* spacing above button */
 }
+
+/* Use same Hero button style */
+.about-buttons .outline-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid gold;
+  border-radius: 6px;
+  color: gold;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.about-buttons .outline-button:hover {
+  background-color: gold;
+  color: #0a1f3c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 80px 40px 40px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-text {
+    margin-bottom: 1.2rem;
+  }
+
+  .about-buttons {
+    margin-top: 1.5rem;
+  }
+}
+

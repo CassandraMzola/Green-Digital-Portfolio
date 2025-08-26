@@ -1,33 +1,41 @@
 // src/components/About.js
 import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../styles/about.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   const sectionRef = useRef(null);
+  const textRefs = useRef([]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          }
-        });
+    // Animate each paragraph on scroll
+    gsap.from(textRefs.current, {
+      opacity: 0,
+      y: 50,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play none none reverse",
       },
-      { threshold: 0.1 }
-    );
+    });
 
-    const elements = sectionRef.current.querySelectorAll(".animate");
-    elements.forEach(el => observer.observe(el));
-
-    return () => observer.disconnect();
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
 
   return (
     <section id="about" className="about-section" ref={sectionRef}>
       <h2 className="section-heading">About Me</h2>
 
-      <p className="about-text animate">
+      <p ref={(el) => (textRefs.current[0] = el)} className="about-text">
         I’m an <span className="highlight">Environmental Scientist</span>, 
         <span className="highlight"> Data Analyst</span>, and 
         <span className="highlight"> Entrepreneur</span> passionate about bridging the gap between 
@@ -38,7 +46,7 @@ const About = () => {
         community engagement.
       </p>
 
-      <p className="about-text animate">
+      <p ref={(el) => (textRefs.current[1] = el)} className="about-text">
         Early in my career, I developed skills in 
         <span className="highlight"> social media management</span>, 
         <span className="highlight"> event coordination</span>, and 
@@ -47,7 +55,7 @@ const About = () => {
         taught me how to communicate complex ideas clearly and engage diverse audiences effectively.
       </p>
 
-      <p className="about-text animate">
+      <p ref={(el) => (textRefs.current[2] = el)} className="about-text">
         In 2023, I expanded my skill set into 
         <span className="highlight"> data analytics</span>, completing the Google Professional 
         Data Analytics Certificate and virtual internships with KPMG and Accenture, where I applied 
@@ -58,7 +66,7 @@ const About = () => {
         knowledge with business and sustainability frameworks.
       </p>
 
-      <p className="about-text animate">
+      <p ref={(el) => (textRefs.current[3] = el)} className="about-text">
         I am the founder of <span className="highlight">Earth Connect</span>, a platform dedicated to 
         teaching sustainability in practical, accessible ways. I also developed 
         <span className="highlight"> EcoAnalytics</span>, a data-driven concept aimed at helping 
@@ -68,7 +76,7 @@ const About = () => {
         <span className="highlight"> BRICS Women’s Startup Contest</span>.
       </p>
 
-      <p className="about-text animate">
+      <p ref={(el) => (textRefs.current[4] = el)} className="about-text">
         Currently, I work as a <span className="highlight">Science Engagement Intern</span> at SARAO, 
         where I got inspiration to develop an <span className="highlight">Interactive Platform</span> to make science more accessible to the public. I’ve 
         presented this platform at the <span className="highlight">Communicating Discovery Science Symposium</span> 
@@ -76,16 +84,25 @@ const About = () => {
         my commitment to creating meaningful, community-centered solutions.
       </p>
 
-      <p className="about-text animate">
+      <p ref={(el) => (textRefs.current[5] = el)} className="about-text">
         I thrive at the intersection of <span className="highlight">science</span>, 
         <span className="highlight"> sustainability</span>, and 
         <span className="highlight"> technology</span>, using data and communication to drive 
         innovation and positive societal impact.
       </p>
+
+      {/* Get In Touch button */}
+      <div ref={(el) => (textRefs.current[6] = el)} className="about-buttons">
+        <a href="#contact" className="outline-button">
+          Get In Touch
+        </a>
+      </div>
     </section>
   );
 };
 
 export default About;
+
+
 
 

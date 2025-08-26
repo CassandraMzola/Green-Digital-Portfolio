@@ -1,13 +1,11 @@
-// src/components/ContactForm.js
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Icon from "./Icons";
-import "../styles/contact.css";;
+import "../styles/contact.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ContactForm = () => {
+const Contact = () => {
   const formRef = useRef(null);
 
   useEffect(() => {
@@ -15,32 +13,28 @@ const ContactForm = () => {
   }, []);
 
   return (
-    <section id="contact" className="contact-page">
-      <div className="contact-form">
-        <div className="contact-header">
-          <h2 className="section-heading">Contact Me</h2>
-          <p
-            style={{
-              color: "#f5f5f5",
-              marginBottom: "1.5rem",
-              textAlign: "center",
-            }}
-          >
-            I am actively looking for roles and opportunities to collaborate.
-            Feel free to connect and reach out!
-          </p>
-        </div>
+    <section id="contact">
+      <div className="contact-header">
+        <h2>Contact Me</h2>
+        <p>
+          I am actively looking for roles and opportunities to collaborate.
+          Feel free to connect and reach out!
+        </p>
+      </div>
 
-        <form ref={formRef} className="contact-form-box">
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
-          <textarea placeholder="Your Message" rows="5" required></textarea>
-          <button type="submit">Send Message</button>
+      <div className="contact-container" ref={formRef}>
+        <form className="contact-form-box">
+          <input type="text" placeholder="Your Name" className="contact-input" required />
+          <input type="email" placeholder="Your Email" className="contact-input" required />
+          <textarea placeholder="Your Message" className="contact-textarea" rows="6" required></textarea>
+          <button type="submit" className="contact-send-btn">Send Message</button>
         </form>
       </div>
     </section>
   );
 };
 
-export default ContactForm;
+export default Contact;
+
+
 

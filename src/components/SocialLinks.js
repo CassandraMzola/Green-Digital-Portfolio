@@ -8,16 +8,16 @@ const SocialLinks = () => {
   return (
     <div className="social-links">
       <a href="https://github.com/CassandraMzola" target="_blank" rel="noreferrer">
-        <FaGithub size={25} />
+        <FaGithub size={30} />
       </a>
       <a href="https://www.linkedin.com/in/cassandramzola" target="_blank" rel="noreferrer">
-        <FaLinkedin size={25} />
+        <FaLinkedin size={30} />
       </a>
       <a href="https://cassandramzola.wixsite.com/cassandrasportfolio" target="_blank" rel="noreferrer">
-        <FiGlobe size={25} />
+        <FiGlobe size={30} />
       </a>
       <a href="mailto:cassandramzola@gmail.com">
-        <FaEnvelope size={25} />
+        <FaEnvelope size={30} />
       </a>
     </div>
   );
