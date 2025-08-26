@@ -15,7 +15,9 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <SocialLinks /> {/* fixed bottom-left */}
+
+      {/* SocialLinks fixed at bottom-left */}
+      <SocialLinks />
 
       <main>
         <section id="hero">
@@ -41,16 +43,16 @@ function App() {
         <section id="contact">
           <Contact />
         </section>
-
-        <section id="credits">
-          <Credits />
-        </section>
       </main>
+
+      {/* Credits always at the bottom */}
+      <Credits />
     </div>
   );
 }
 
 export default App;
+
 
 
 
