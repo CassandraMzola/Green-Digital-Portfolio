@@ -1,4 +1,4 @@
-/* Reset and base styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +14,7 @@ html, body, #root {
   line-height: 1.6;
 }
 
-/* App layout */
+
 .App {
   display: flex;
   flex-direction: column;
@@ -22,16 +22,16 @@ html, body, #root {
 }
 
 main {
-  flex: 1; /* pushes Credits to bottom */
+  flex: 1; 
 }
 
-/* Headings */
+
 h1, h2, h3, h4, h5, h6 {
   color: gold;
   margin-bottom: 1rem;
 }
 
-/* Links */
+
 a {
   color: #f5f5f5;
   text-decoration: none;
@@ -42,7 +42,7 @@ a:hover {
   color: #fca311;
 }
 
-/* Utility classes */
+
 .text-gold {
   color: #FFD700;
 }
@@ -51,7 +51,7 @@ a:hover {
   color: #ccc;
 }
 
-/* Section styling */
+
 section {
   padding: 80px 20px;
   min-height: 100vh;
@@ -67,7 +67,7 @@ section {
   color: gold;
 }
 
-/* TechStack hover effect */
+
 #techstack li {
   transition: transform 0.2s ease;
 }
@@ -77,15 +77,44 @@ section {
   cursor: pointer;
 }
 
-/* Contact section padding */
+
 #contact {
-  padding-bottom: 60px; /* reduces extra space before Credits */
+  padding-bottom: 60px; 
 }
 
-/* Mobile responsiveness */
+
 @media (max-width: 768px) {
   section {
     padding: 60px 15px;
+  }
+}
+
+.social-links {
+  position: fixed;
+  bottom: 50px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+}
+
+.social-links a {
+  color: #ffffff; 
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.2);
+  color: #fca311;
+}
+
+
+@media (max-width: 600px) {
+  .social-links {
+    bottom: 15px;
+    left: 15px;
+    gap: 10px;
   }
 }
 

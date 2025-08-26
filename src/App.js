@@ -1,4 +1,4 @@
-// src/App.js
+
 import React from "react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <Navbar />
 
-      {/* SocialLinks fixed at bottom-left */}
+    
       <SocialLinks />
 
       <main>
@@ -45,7 +45,7 @@ function App() {
         </section>
       </main>
 
-      {/* Credits always at the bottom */}
+
       <Credits />
     </div>
   );
