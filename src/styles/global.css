@@ -1,5 +1,3 @@
-/* src/styles/global.css */
-
 /* Reset and base styles */
 * {
   margin: 0;
@@ -7,12 +5,24 @@
   box-sizing: border-box;
 }
 
-html, body {
+html, body, #root {
+  height: 100%;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #0a1f3c; /* Navy */
+  background-color: #0a1f3c;
   color: #ffffff;
   scroll-behavior: smooth;
   line-height: 1.6;
+}
+
+/* App layout */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; /* pushes Credits to bottom */
 }
 
 /* Headings */
@@ -29,7 +39,7 @@ a {
 }
 
 a:hover {
-  color: #fca311; /* gold accent */
+  color: #fca311;
 }
 
 /* Utility classes */
@@ -67,62 +77,9 @@ section {
   cursor: pointer;
 }
 
-/* Contact section */
+/* Contact section padding */
 #contact {
-  padding-bottom: 120px;
-}
-
-.contact-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  text-align: center;
-}
-
-.contact-description {
-  max-width: 600px;
-  margin-bottom: 1.5rem;
-}
-
-.contact-form {
-  width: 100%;
-  max-width: 500px;
-  background: #102a54;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 1rem;
-  border: none;
-  border-radius: 6px;
-  outline: none;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border: 2px solid #FFD700;
-}
-
-.contact-form button {
-  background: gold;
-  color: #0a1f3c;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.contact-form button:hover {
-  background: #fca311;
+  padding-bottom: 60px; /* reduces extra space before Credits */
 }
 
 /* Mobile responsiveness */
@@ -130,10 +87,8 @@ section {
   section {
     padding: 60px 15px;
   }
-
-  .contact-form {
-    padding: 1.5rem;
-  }
 }
+
+
 
 
