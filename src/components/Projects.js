@@ -1,35 +1,69 @@
-// src/components/Projects.js
-import React from "react";
-import { FaGithub, FaTable } from "react-icons/fa"; // ✅ Importing icons
-import "../styles/projects.css";
+import React, { useState } from "react";
+import ProjectList from "./ProjectList";
+import "../styles/projects.css"; // ✅ assuming styles is in src/styles
 
-const Projects = () => {
+
+const Project = () => {
+  const [selectedProject, setSelectedProject] = useState(ProjectList[0]);
+
   return (
-    <section className="projects">
-      <h2 className="section-heading">Projects</h2>
+    <section id="projects">
+      <div className="projects-section-container">
+        <h2 className="project-section-title">My Projects</h2>
+        <div className="projects-directory-layout">
+          <div className="directory-box">
+            <div className="directory-sidebar">
+              <ul className="directory-tree">
+                {ProjectList.map((project, index) => (
+                  <li key={index} className="project-item">
+                    <button
+                      className={`directory-folder ${selectedProject.name === project.name ? "active" : ""}`}
+                      onClick={() => setSelectedProject(project)}
+                    >
+                      {project.name}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-      <div className="projects-container">
-        {/* Example Project */}
-        <div className="project-card">
-          <aside className="sidebar">
-            <p>📂 SQL Project</p>
-            <p>📄 README</p>
-            <p>📊 Dataset</p>
-          </aside>
-
-          <div className="project-content">
-            <h3>Hotel Operations SQL Analysis</h3>
-            <p>
-              A SQL-based project analyzing hotel booking and operations data. 
-              Includes cleaning, exploration, and visualization.
-            </p>
-            <div className="project-links">
-              <a href="https://github.com/yourusername/your-sql-project" target="_blank" rel="noopener noreferrer">
-                <FaGithub size={24} />
-              </a>
-              <a href="https://public.tableau.com/app/profile/yourusername" target="_blank" rel="noopener noreferrer">
-                <FaTable size={24} />
-              </a>
+            <div className="directory-content">
+              <div
+                className="project-info-container"
+                style={{ backgroundColor: "#0a1f3c" }}
+              >
+                <div className="project-overlay"></div>
+                <div className="project-content">
+                  <h3 className="project-title">{selectedProject.name}</h3>
+                  <p className="project-description">
+                    {selectedProject.files[0]?.content || "No description available."}
+                  </p>
+                  <ul className="project-tags">
+                    {selectedProject.tags.map((tag, index) => (
+                      <li key={index} className="tag-pill">
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="project-links">
+                    {selectedProject.github && (
+                      <a href={selectedProject.github} className="icon-link" target="_blank" rel="noreferrer">
+                        GitHub
+                      </a>
+                    )}
+                    {selectedProject.medium && (
+                      <a href={selectedProject.medium} className="icon-link" target="_blank" rel="noreferrer">
+                        Medium
+                      </a>
+                    )}
+                    {selectedProject.dataset && (
+                      <a href={selectedProject.dataset} className="icon-link" target="_blank" rel="noreferrer">
+                        Dataset
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -38,5 +72,6 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Project;
+
 
