@@ -1,12 +1,12 @@
-/* src/styles/hero.css */
+
 
 .hero {
   display: flex;
-  justify-content: space-between; /* keep left and right separate */
+  justify-content: space-between; 
   align-items: center;
   min-height: 100vh;
   padding: 0 100px;
-  background-color: #0a1f3c; /* matches global */
+  background-color: #0a1f3c; 
 }
 
 .hero-left {
@@ -17,10 +17,10 @@
 .hero-right {
   flex: 1;
   display: flex;
-  justify-content: flex; /* push globe to the far right */
+  justify-content: flex; 
   align-items: center;
-  max-width: 400px; /* container width */
-  width: 300%; /* fill available space */
+  max-width: 400px; 
+  width: 300%; 
 }
 
 .hero-left h1 {
@@ -31,11 +31,12 @@
 
 .intro-subtitle {
   font-size: 1.5rem;
-  color: #f5f5f5;
-  margin-bottom: 15px;
   font-weight: 500;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #ffffff, gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-
 .intro-subtitle-name {
   font-weight: 700;
   color: gold;
@@ -50,6 +51,7 @@
 }
 
 .intro-buttons .outline-button {
+  margin-top: 25px;
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border: 2px solid gold;
@@ -65,7 +67,7 @@
   color: #0a1f3c;
 }
 
-/* Responsive */
+
 @media (max-width: 1200px) {
   .hero {
     flex-direction: column;

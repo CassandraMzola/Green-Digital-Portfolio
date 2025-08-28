@@ -1,4 +1,4 @@
-// src/components/HeroSection.js
+
 import React, { useRef, useEffect } from "react";
 import { ReactTyped as Typed } from "react-typed";
 import { gsap } from "gsap";
@@ -64,7 +64,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Animated Globe on the right */}
+     
       <div className="hero-right">
         <HeroAnimation />
       </div>
