@@ -15,36 +15,21 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-
-    
       <SocialLinks />
 
       <main>
-        <section id="hero">
-          <HeroSection />
-        </section>
+        <HeroSection />
 
-        <section id="about">
-          <About />
-        </section>
+        <About />
 
-        <section id="experience">
-          <Experience />
-        </section>
+        <Experience />
 
-        <section id="projects">
-          <Projects />
-        </section>
+        <Projects />
 
-        <section id="techstack">
-          <TechStack />
-        </section>
+        <TechStack />
 
-        <section id="contact">
-          <Contact />
-        </section>
+        <Contact />
       </main>
-
 
       <Credits />
     </div>
@@ -52,6 +37,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
