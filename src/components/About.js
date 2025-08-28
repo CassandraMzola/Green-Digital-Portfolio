@@ -11,7 +11,12 @@ const About = () => {
   const textRefs = useRef([]);
 
   useEffect(() => {
-    // Animate each paragraph on scroll
+    if (!textRefs.current) return;
+
+    // Make sure all elements are visible initially
+    gsap.set(textRefs.current, { opacity: 1 });
+
+    // Animate from hidden position when scrolling
     gsap.from(textRefs.current, {
       opacity: 0,
       y: 50,
@@ -20,9 +25,9 @@ const About = () => {
       ease: "power2.out",
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 80%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse",
+        start: "top 85%",
+        toggleActions: "play none none none",
+        once: true, // trigger only once
       },
     });
 
@@ -78,9 +83,9 @@ const About = () => {
 
       <p ref={(el) => (textRefs.current[4] = el)} className="about-text">
         Currently, I work as a <span className="highlight">Science Engagement Intern</span> at SARAO, 
-        where I got inspiration to develop an <span className="highlight">Interactive Platform</span> to make science more accessible to the public. I’ve 
+        where I got inspiration to develop an <span className="highlight">Interactive Online Platform</span> to make science more accessible to the public. I’ve 
         presented this platform at the <span className="highlight">Communicating Discovery Science Symposium</span> 
-         and the <span className="highlight">African Astronomical Society Conference</span>, demonstrating 
+        and the <span className="highlight">African Astronomical Society Conference</span>, demonstrating 
         my commitment to creating meaningful, community-centered solutions.
       </p>
 
@@ -91,7 +96,6 @@ const About = () => {
         innovation and positive societal impact.
       </p>
 
-      {/* Get In Touch button */}
       <div ref={(el) => (textRefs.current[6] = el)} className="about-buttons">
         <a href="#contact" className="outline-button">
           Get In Touch
@@ -102,6 +106,7 @@ const About = () => {
 };
 
 export default About;
+
 
 
 

@@ -3,8 +3,9 @@
 .about-section {
   min-height: 80vh;
   background-color: #0a1f3c;
-  color: #f5f5f5;
+  color: #ccc;
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -27,10 +28,12 @@
 
 /* Paragraphs */
 .about-text {
-  max-width: 700px;
-  line-height: 1.6;
+  max-width: 800px;
+  line-height: 1.5;
   font-size: 1.1rem; /* match Hero section */
   margin-bottom: 1.5rem;
+  margin-top: -50px;
+  padding: 20px;
 }
 
 /* Animate fade-in */
@@ -82,5 +85,12 @@
   .about-buttons {
     margin-top: 1.5rem;
   }
+}
+.highlight {
+  background: linear-gradient(90deg, #ffffff, gold); /* white to yellow */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* for Firefox */
+  font-weight: bold;
 }
 
