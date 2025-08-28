@@ -1,7 +1,7 @@
-// src/components/HeroAnimation.js
+
 import React from "react";
 import Lottie from "lottie-react";
-import globeAnimation from "../assets/animations/globe.json"; // adjust path if needed
+import globeAnimation from "../assets/animations/globe.json"; 
 
 const HeroAnimation = () => {
   return (

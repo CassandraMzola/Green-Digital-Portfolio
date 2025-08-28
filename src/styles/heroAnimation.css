@@ -1,20 +1,20 @@
-/* src/styles/heroAnimation.css */
+
 
 .hero-animation {
   display: flex;
-  justify-content: flex-end;  /* globe pushed to far right */
+  justify-content: flex-end;  
   align-items: center;
   flex: 1;
 }
 
 .hero-animation canvas,
 .hero-animation svg {
-  width: 550px !important;    /* globe size */
+  width: 550px !important;    
   height: 550px !important;
   max-width: 100%;
 }
 
-/* Responsive for smaller screens */
+
 @media (max-width: 768px) {
   .hero-animation canvas,
   .hero-animation svg {
