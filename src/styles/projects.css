@@ -1,6 +1,6 @@
 :root {
   --primary-color: gold; /* Your highlight */
-  --secondary-color: #41C7C7; /* Complementary */
+  --secondary-color: #rgba; /* Complementary */
   --bg-color: #0a1f3c; /* Main background */
   --lightest-text: #e0e0e0; /* Text */
   --box-color: rgba(5, 14, 27, 0.096); /* Sidebar / card */
@@ -199,6 +199,27 @@
   .project-title { font-size: 20px; }
   .project-description { font-size: 16px; }
   .tag-pill { font-size: 12px; padding: 4px 10px; }
+}
+.project-folder {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.folder-items {
+  list-style: none;
+  padding-left: 25px;
+  margin-top: 5px;
+}
+
+.folder-items pre {
+  background-color: rgba(10, 25, 47, 0.2);
+  padding: 10px;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 13px;
 }
 
 

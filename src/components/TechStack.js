@@ -70,7 +70,7 @@ export default function TechStack() {
   return (
     <section id="tech-stack" ref={techStackRef}>
       <div className="section-header">
-        <span className="section-title tech-title">Tech Stack</span>
+        <span className="section-heading">Tech Stack</span>
       </div>
 
       <div className="tech-grid-container">

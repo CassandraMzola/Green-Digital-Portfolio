@@ -1,53 +1,33 @@
 const ProjectList = [
   {
-    name: "Climate Data Dashboard",
-    github: "#",
-    medium: "#",
-    dataset: "#",
-    tags: ["Python", "Data Analysis", "Visualization"],
+    name: "Earthquake Data Pipeline",
+    github: "https://github.com/CassandraMzola/PortfolioProjects/tree/main/Earthquake-Data-Pipeline",
+    tags: ["Python", "ETL", "Data Analysis", "Visualization"],
     files: [
       {
-        name: "README.md",
-        type: "info",
-        content: "Placeholder: This project explores climate data trends across major cities."
+        folder: "Scripts",
+        items: [
+          { name: "etl.py", type: "code", language: "python", content: "Extracts, transforms, and loads earthquake data." },
+          { name: "data_cleaning.py", type: "code", language: "python", content: "Cleans and preprocesses the data." },
+          { name: "data_visualization.py", type: "code", language: "python", content: "Generates visualizations from the data." }
+        ]
       },
       {
-        name: "analysis.py",
-        type: "code",
-        content: "# Placeholder Python analysis code",
-        language: "python"
-      }
-    ]
-  },
-  {
-    name: "Water Quality Insights",
-    github: "#",
-    medium: "#",
-    dataset: "#",
-    tags: ["SQL", "Data Cleaning", "Tableau"],
-    files: [
+        folder: "Documentation",
+        items: [
+          { name: "README.md", type: "info", content: "Project overview, setup instructions, and usage." }
+        ]
+      },
       {
-        name: "README.md",
-        type: "info",
-        content: "Placeholder: Water quality analysis project description."
-      }
-    ]
-  },
-  {
-    name: "Renewable Energy Trends",
-    github: "#",
-    medium: "#",
-    dataset: "#",
-    tags: ["Excel", "Power BI", "Data Visualization"],
-    files: [
-      {
-        name: "README.md",
-        type: "info",
-        content: "Placeholder: Analyzing renewable energy adoption trends."
+        folder: "Data",
+        items: [
+          { name: "earthquake_data.csv", type: "data", content: "Sample dataset used in the pipeline." }
+        ]
       }
     ]
   }
 ];
 
 export default ProjectList;
+
 
