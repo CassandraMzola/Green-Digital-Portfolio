@@ -1,9 +1,9 @@
-// src/components/Contact.js
+
 import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../styles/contact.css";
-import { User, Mail, MessageSquare, Send } from "react-feather"; // example icons
+import { User, Mail, MessageSquare, Send } from "react-feather";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +16,6 @@ const Contact = () => {
   useEffect(() => {
     if (!formRef.current) return;
 
-    // Ensure form is visible immediately
     gsap.set(formRef.current, { opacity: 1, y: 0 });
 
     gsap.from(formRef.current, {
@@ -28,7 +27,7 @@ const Contact = () => {
         trigger: "#contact",
         start: "top 85%",
         toggleActions: "play none none none",
-        once: true, // animation triggers only once
+        once: true,
       },
     });
   }, []);
@@ -79,7 +78,7 @@ const Contact = () => {
 
           {/* Message */}
           <div className="input-group">
-            <MessageSquare className="input-group" />
+            <MessageSquare className="input-icon" />
             <textarea
               placeholder="Your Message"
               className="contact-textarea"
@@ -92,7 +91,7 @@ const Contact = () => {
 
           {/* Send button */}
           <button type="submit" className="contact-send-btn">
-            Send Message <Send className="input-group send-icon" />
+            Send Message <Send className="send-icon" />
           </button>
         </form>
       </div>
@@ -101,6 +100,7 @@ const Contact = () => {
 };
 
 export default Contact;
+
 
 
 

@@ -1,15 +1,16 @@
 /* Contact Section */
 #contact.contact-section {
+  min-height: auto;
   position: relative;
   z-index: 1;
-  min-height: 80vh;
   max-width: 900px;
-  margin: 40px auto 60px;
-  padding: 60px 20px;
+  padding-top: 90px;
+  padding-bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: transparent;
+  margin-bottom: 100;
 }
 
 /* Heading & Subtitle */
@@ -34,26 +35,28 @@
   width: 100%;
   max-width: 750px;
   margin: 0 auto;
-  padding: 3rem 3rem;
+  padding: 3rem;
   border-radius: 16px;
   background-color: rgba(16, 42, 84, 0.95);
   backdrop-filter: blur(10px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
 /* Input Wrapper for Icons */
-.input-wrapper {
+.input-group {
   position: relative;
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .input-icon {
   position: absolute;
   left: 16px;
-  top: 50%;
+  top: 18px;
   transform: translateY(-50%);
   font-size: 18px;
   color: gold;
@@ -70,32 +73,33 @@
   background-color: rgba(30, 41, 59, 0.7);
   border: none;
   border-radius: 10px;
-  padding: 16px 20px 16px 45px; /* space for icon */
-}
-
-.contact-input:focus,
-.contact-textarea:focus {
-  outline: none;
-  background-color: rgba(30, 41, 59, 0.85);
+  padding: 16px 20px 16px 45px;
+  box-sizing: border-box;
+  
 }
 
 .contact-textarea {
   resize: vertical;
-  min-height: 160px; /* larger message box */
+  min-height: 160px; 
+  padding-top: 18px; 
 }
 
-/* Button — matches View Resume style */
+
 .contact-send-btn {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   padding: 0.75rem 1.5rem;
   border: 2px solid gold;
   border-radius: 6px;
+  font-family: 'Segoe UI', sans-serif;
   color: gold;
   font-weight: 600;
   background-color: transparent;
   cursor: pointer;
   transition: background 0.3s ease, color 0.3s ease;
-  text-align: center;
+  
 }
 
 .contact-send-btn:hover {
@@ -103,7 +107,7 @@
   color: #0a1f3c;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .contact-container {
     padding: 2rem 2rem;
