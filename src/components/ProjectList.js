@@ -1,5 +1,5 @@
-const ProjectList = [
-  {
+ const ProjectList = [
+   {
     name: "Earthquake Data Pipeline",
     github: "https://github.com/CassandraMzola/PortfolioProjects/tree/main/Earthquake-Data-Pipeline",
     tags: ["Python", "ETL", "Data Analysis", "Visualization"],
