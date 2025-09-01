@@ -1,4 +1,4 @@
-// src/components/Credits.js
+
 import React from "react";
 import "./../styles/credits.css";
 
