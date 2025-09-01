@@ -2,27 +2,40 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../styles/techstack.css";
-import { RiFileExcel2Fill } from "react-icons/ri";
-import { SiPostgresql, SiPython, SiTableau } from "react-icons/si";
-import { FaChartBar } from "react-icons/fa";
+import { RiFileExcel2Fill, RiGitBranchLine } from "react-icons/ri";
+import { SiPostgresql, SiPython, SiTableau, SiJupyter, SiR, SiHtml5, SiCss3, SiJavascript, SiArcgis } from "react-icons/si";
+import { FaChartBar, FaProjectDiagram } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const techStackData = [
+  // Data Analytics
   { name: "Excel", icon: <RiFileExcel2Fill />, color: "#217346" },
-  { name: "Power BI", icon: <SiTableau />, color: "#E97627" }, // Placeholder
+  { name: "Power BI", icon: <SiTableau />, color: "#E97627" },
   { name: "PostgreSQL", icon: <SiPostgresql />, color: "#336791" },
   { name: "Python", icon: <SiPython />, color: "#3776AB" },
-  { name: "Statistics", icon: <FaChartBar />, color: "#FF9900" },
-];
+  { name: "R", icon: <SiR />, color: "#276DC3" },
+  { name: "Jupyter Notebook", icon: <SiJupyter />, color: "#F37626" },
+  { name: "Git / GitHub", icon: <RiGitBranchLine />, color: "#F05032" },
 
+  // Data Visualization & Stats
+  { name: "Statistics", icon: <FaChartBar />, color: "#FF9900" },
+  { name: "Matplotlib / Seaborn", icon: <FaProjectDiagram />, color: "#4B8BBE" },
+
+  // Web
+  { name: "HTML5", icon: <SiHtml5 />, color: "#E44D26" },
+  { name: "CSS3", icon: <SiCss3 />, color: "#1572B6" },
+
+  // Environmental / Sustainability Tools
+  { name: "ArcGIS / QGIS", icon: <SiArcgis />, color: "#009966" },
+];
 export default function TechStack() {
   const techStackRef = useRef(null);
 
   useEffect(() => {
     const icons = techStackRef.current.querySelectorAll(".tech-icon-container");
 
-    // Animate section title
+   
     gsap.fromTo(".tech-title",
       { y: 30, opacity: 0 },
       {
@@ -38,7 +51,7 @@ export default function TechStack() {
       }
     );
 
-    // Animate icons with stagger
+
     gsap.fromTo(icons,
       { scale: 0.1, y: -50, opacity: 0 },
       {
