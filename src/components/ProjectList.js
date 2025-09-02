@@ -8,8 +8,8 @@ const ProjectList = {
     {
       name: "Earthquake Data Pipeline",
       image: earthquake,
-      medium: "",
-      dataset: "",
+      medium: "https://medium.com/@cassandramzola/building-an-earthquake-data-pipeline-my-journey-57e55b10f778",
+      dataset: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson",
       github: "https://github.com/CassandraMzola/PortfolioProjects/tree/main/Earthquake-Data-Pipeline",
       tags: ["Python", "ETL", "Data Pipeline", "BigQuery", "Jupyter Notebook", "API"],
       files: [
