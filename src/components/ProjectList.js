@@ -1,33 +1,37 @@
- const ProjectList = [
-   {
+// src/components/ProjectList.js
+import Code from "./codes/code";
+
+const ProjectList = [
+  {
     name: "Earthquake Data Pipeline",
+    image: "/assets/earthquake.png",
+    medium: "", // Add link or info here if needed
+    dataset: "", // Add dataset link or info here if needed
     github: "https://github.com/CassandraMzola/PortfolioProjects/tree/main/Earthquake-Data-Pipeline",
-    tags: ["Python", "ETL", "Data Analysis", "Visualization"],
+    tags: ["Python", "ETL", "Data Pipeline", "BigQuery", "Jupyter Notebook", "API"],
     files: [
       {
-        folder: "Scripts",
-        items: [
-          { name: "etl.py", type: "code", language: "python", content: "Extracts, transforms, and loads earthquake data." },
-          { name: "data_cleaning.py", type: "code", language: "python", content: "Cleans and preprocesses the data." },
-          { name: "data_visualization.py", type: "code", language: "python", content: "Generates visualizations from the data." }
-        ]
+        name: "README.md",
+        type: "info",
+        content: `The Earthquake Data Pipeline automatically collects live earthquake data from the USGS 
+(United States Geological Survey) and stores it in Google BigQuery. 
+This enables real-time and historical analysis of earthquakes for research or data projects.`
       },
       {
-        folder: "Documentation",
-        items: [
-          { name: "README.md", type: "info", content: "Project overview, setup instructions, and usage." }
-        ]
+        name: "earthquake.ipynb",
+        type: "code",
+        content: Code("Earthquake")["earthquake.ipynb"],
+        language: "python"
       },
       {
-        folder: "Data",
-        items: [
-          { name: "earthquake_data.csv", type: "data", content: "Sample dataset used in the pipeline." }
-        ]
+        name: "earthquake.py",
+        type: "code",
+        content: Code("Earthquake")["earthquake.py"],
+        language: "python"
       }
     ]
-  }
+  },
+  // You can add more projects here following the same structure
 ];
 
 export default ProjectList;
-
-

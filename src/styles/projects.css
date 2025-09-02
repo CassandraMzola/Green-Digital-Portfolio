@@ -1,12 +1,12 @@
 :root {
-  --primary-color: gold; /* Your highlight */
-  --secondary-color: #rgba; /* Complementary */
-  --bg-color: #0a1f3c; /* Main background */
-  --lightest-text: #e0e0e0; /* Text */
-  --box-color: rgba(5, 14, 27, 0.096); /* Sidebar / card */
+  --primary-color: gold; 
+  --green-bright: #64d989;       /* your highlight green */
+  --lightest-slate: #e0e0e0;    /* text */
+  --anchor-text: linear-gradient(90deg, #64d989, #41c7c7);
+  --bg-color: #0a1f3c;
+  --box-color: rgba(5, 14, 27, 0.096);
   --transition: 0.3s ease;
 }
-
 /* ============================================= */
 /* Main Layout */
 #projects {
@@ -220,6 +220,16 @@
   border-radius: 6px;
   overflow-x: auto;
   font-size: 13px;
+}
+.directory-square {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, rgba(100, 217, 137, 0.3), rgba(100, 217, 138, 0.02));
+  left: -250px;
+  bottom: 250px;
+  transform: rotate(45deg);
+  filter: blur(40px);
 }
 
 
