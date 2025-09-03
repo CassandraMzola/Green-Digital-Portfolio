@@ -2,12 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Flip } from "gsap/Flip";
+import { useParams, useNavigate } from "react-router-dom"; // ✅ Added for project-specific links
 import ProjectList from "./ProjectList";
 import CodeViewer from "./CodeViewer";
 import Icon from "./Icons";
 
-// IMPORTANT: match the actual filename/casing in your project
-// If your file is styles/projects.css keep this lowercase import:
 import "../styles/projects.css";
 
 import { VscFolder, VscFolderOpened, VscMarkdown, VscChevronRight } from "react-icons/vsc";
@@ -16,28 +15,28 @@ import { BsDatabase } from "react-icons/bs";
 
 gsap.registerPlugin(ScrollTrigger, Flip);
 
-// ProjectList is an OBJECT keyed by sections
 const projectsData = ProjectList;
 
 function getFileIcon(file) {
   const iconStyle = { marginRight: 6, fontSize: 15, flexShrink: 0 };
-  if (file.name.endsWith(".md")) return <VscMarkdown style={{ ...iconStyle, color: "#FFD700" }} />; // gold
+  if (file.name.endsWith(".md")) return <VscMarkdown style={{ ...iconStyle, color: "#FFD700" }} />;
   if (file.name.endsWith(".sql")) return <SiMysql style={{ ...iconStyle, color: "#00758f" }} />;
-  if (file.name.endsWith(".ipynb")) return <SiPython style={{ ...iconStyle, color: "#3572A5" }} />;
-  if (file.name.endsWith(".py")) return <SiPython style={{ ...iconStyle, color: "#3572A5" }} />;
+  if (file.name.endsWith(".ipynb") || file.name.endsWith(".py")) return <SiPython style={{ ...iconStyle, color: "#3572A5" }} />;
   return <VscMarkdown style={{ ...iconStyle, color: "#8da1b9" }} />;
 }
 
 const getInitialOpenFolders = (projects) =>
   Object.fromEntries(projects.map((_, idx) => [idx, idx === 0]));
 
-// FIX: handle -1 properly
 const getReadmeIdx = (files) => {
   const i = files.findIndex((f) => f.name.toLowerCase() === "readme.md");
   return i >= 0 ? i : 0;
 };
 
 export default function Projects() {
+  const { projectSlug } = useParams(); // ✅ project slug from URL
+  const navigate = useNavigate();
+
   const sectionKeys = Object.keys(projectsData);
 
   const [selected, setSelected] = useState(
@@ -67,7 +66,6 @@ export default function Projects() {
       filesListRef.current[section] = {};
 
       const initialOpenState = getInitialOpenFolders(projectsData[section]);
-
       setOpenFolders((prev) => ({
         ...prev,
         [section]: initialOpenState,
@@ -78,8 +76,26 @@ export default function Projects() {
         [section]: 0,
       }));
     });
-  }, []); // sectionKeys stable from initial data
+  }, []);
 
+  // ✅ Open project based on slug
+  useEffect(() => {
+    if (!projectSlug) return;
+
+    sectionKeys.forEach((section) => {
+      const projects = projectsData[section];
+      const idx = projects.findIndex(
+        (p) => p.name.toLowerCase().replace(/\s+/g, "-") === projectSlug.toLowerCase()
+      );
+      if (idx >= 0) {
+        handleFolderToggle(section, idx);
+        const readmeIdx = getReadmeIdx(projects[idx].files);
+        handleFileSelect(section, idx, readmeIdx);
+      }
+    });
+  }, [projectSlug]);
+
+  // GSAP animations
   useEffect(() => {
     gsap.fromTo(
       "#projects .section-title",
@@ -144,7 +160,7 @@ export default function Projects() {
       });
 
       gsap.to(folderEl.querySelector(".folder-icon"), {
-        color: "var(--primary-color)", // gold
+        color: "var(--primary-color)",
         duration: 0.3,
       });
 
@@ -190,17 +206,14 @@ export default function Projects() {
 
     if (!isCurrentlyOpen) {
       gsap.to(foldersRef.current[section][idx], {
-        backgroundColor: "rgba(255, 215, 0, 0.10)", // gold tint
+        backgroundColor: "rgba(255, 215, 0, 0.10)",
         duration: 0.3,
         ease: "power2.out",
       });
 
       setOpenFolders((prev) => ({
         ...prev,
-        [section]: {
-          ...prev[section],
-          [idx]: true,
-        },
+        [section]: { ...prev[section], [idx]: true },
       }));
 
       const readmeIdx = getReadmeIdx(projectsData[section][idx].files);
@@ -219,10 +232,7 @@ export default function Projects() {
       setTimeout(() => {
         setOpenFolders((prev) => ({
           ...prev,
-          [section]: {
-            ...prev[section],
-            [idx]: false,
-          },
+          [section]: { ...prev[section], [idx]: false },
         }));
       }, 300);
     } else {
@@ -235,7 +245,7 @@ export default function Projects() {
       });
 
       gsap.to(foldersRef.current[section][idx], {
-        backgroundColor: "rgba(255, 215, 0, 0.10)", // gold tint
+        backgroundColor: "rgba(255, 215, 0, 0.10)",
         duration: 0.3,
         ease: "power2.out",
       });
@@ -329,7 +339,6 @@ export default function Projects() {
     if (!filesListRef.current[section]) filesListRef.current[section] = {};
     filesListRef.current[section][idx] = el;
   };
-
   return (
     <section id="projects" ref={projectsRef}>
       <div className="section-header">
@@ -379,7 +388,7 @@ export default function Projects() {
                               onMouseEnter={(e) => {
                                 if (!isActive) {
                                   gsap.to(e.currentTarget, {
-                                    backgroundColor: "rgba(255, 215, 0, 0.06)", // gold hover
+                                    backgroundColor: "rgba(255, 215, 0, 0.06)", 
                                     duration: 0.2,
                                   });
                                 }

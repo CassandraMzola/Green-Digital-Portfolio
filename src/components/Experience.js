@@ -1,10 +1,7 @@
-// src/components/Experience.js
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../styles/experience.css";
-
-// Import your company logos
 import saraoLogo from "../assets/logos/sarao.png";
 import accentureLogo from "../assets/logos/accenture.jpg";
 import kpmgLogo from "../assets/logos/kpmg.png";
@@ -50,7 +47,7 @@ export default function Experience() {
     timelineItemsRef.current = timelineItemsRef.current.filter(Boolean);
 
     const ctx = gsap.context(() => {
-      // Animate section title
+    
       gsap.fromTo(
         "#experience .section-heading",
         { y: 30, opacity: 0 },
@@ -67,7 +64,7 @@ export default function Experience() {
         }
       );
 
-      // Animate progress line
+      
       gsap.fromTo(
         "#experience-progress-line",
         { height: "0%" },
@@ -83,7 +80,7 @@ export default function Experience() {
         }
       );
 
-      // Animate each timeline item
+      
       timelineItemsRef.current.forEach((item, index) => {
         const direction = index % 2 === 0 ? -1 : 1;
         const content = item.querySelector(".timeline-content");

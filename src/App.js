@@ -1,5 +1,6 @@
-
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import About from "./components/About";
@@ -9,34 +10,46 @@ import TechStack from "./components/TechStack";
 import Contact from "./components/Contact";
 import Credits from "./components/Credits";
 import SocialLinks from "./components/SocialLinks";
+
 import "./styles/global.css";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <SocialLinks />
+    <Router>
+      <div className="App">
+        <Navbar />
+        <SocialLinks />
 
-      <main>
-        <HeroSection />
+        <main>
+          <Routes>
+            {/* Home route */}
+            <Route
+              path="/"
+              element={
+                <>
+                  <HeroSection />
+                  <About />
+                  <Experience />
+                  <Projects />
+                  <TechStack />
+                  <Contact />
+                </>
+              }
+            />
 
-        <About />
+            {/* Single project route */}
+            <Route path="/projects/:projectSlug" element={<Projects />} />
+          </Routes>
+        </main>
 
-        <Experience />
-
-        <Projects />
-
-        <TechStack />
-
-        <Contact />
-      </main>
-
-      <Credits />
-    </div>
+        <Credits />
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
 
 
 

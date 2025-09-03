@@ -1,5 +1,5 @@
 :root {
-  /* Core palette (match your global.css) */
+ 
   --primary-color: #FFD700;          /* gold */
   --accent-color: #fca311;           /* gold/orange hover */
   --anchor-text: linear-gradient(90deg, var(--primary-color), var(--accent-color));
@@ -76,7 +76,7 @@
 }
 
 .directory-circle {
-  /* optional decorative circle (kept for parity with original layout) */
+
   position: absolute;
   right: -150px;
   top: -120px;
@@ -102,7 +102,7 @@
   background-color: var(--box-color);
 }
 
-/* small webkit scrollbar styling (optional) */
+
 .directory-sidebar::-webkit-scrollbar { width: 10px; height: 10px; }
 .directory-sidebar::-webkit-scrollbar-thumb { background: rgba(255,215,0,0.12); border-radius: 6px; }
 .directory-sidebar::-webkit-scrollbar-track { background: transparent; }

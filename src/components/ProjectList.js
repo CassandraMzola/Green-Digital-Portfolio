@@ -1,4 +1,3 @@
-
 import Code from "./codes/code";
 import earthquake from "../assets/earthquake.png.png"
 
@@ -7,6 +6,7 @@ const ProjectList = {
   "Data Pipelines": [
     {
       name: "Earthquake Data Pipeline",
+       slug: "earthquake-data-pipeline",
       image: earthquake,
       medium: "https://medium.com/@cassandramzola/building-an-earthquake-data-pipeline-my-journey-57e55b10f778",
       dataset: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson",

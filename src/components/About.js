@@ -1,4 +1,3 @@
-// src/components/About.js
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,10 +12,10 @@ const About = () => {
   useEffect(() => {
     if (!textRefs.current) return;
 
-    // Make sure all elements are visible initially
+
     gsap.set(textRefs.current, { opacity: 1 });
 
-    // Animate from hidden position when scrolling
+    
     gsap.from(textRefs.current, {
       opacity: 0,
       y: 50,
@@ -27,7 +26,7 @@ const About = () => {
         trigger: sectionRef.current,
         start: "top 85%",
         toggleActions: "play none none none",
-        once: true, // trigger only once
+        once: true, 
       },
     });
 

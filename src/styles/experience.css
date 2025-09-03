@@ -1,4 +1,4 @@
-/* src/styles/Experience.css */
+
 
 #experience {
   margin: 150px auto;
@@ -63,14 +63,14 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: var(--color-hover); /* you can keep or override */
-  border: 3px solid var(--green-bright); /* change to gold */
+  background-color: var(--color-hover); 
+  border: 3px solid var(--green-bright); 
   transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* subtle gold shadow */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); 
   transition: box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
