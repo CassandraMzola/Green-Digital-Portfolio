@@ -5,7 +5,6 @@ import depthVsMagnitude from "../assets/visuals/depth_vs_magnitude.png";
 import earthquakesPerDay from "../assets/visuals/earthquakes_per_day.png";
 import magnitudeCategories from "../assets/visuals/magnitude_categories.png";
 import magnitudeDistribution from "../assets/visuals/magnitude_distribution.png";
-import topRegions from "../assets/visuals/top_regions.png";
 
 const ProjectList = {
   "Data Pipelines": [
@@ -58,37 +57,6 @@ from the USGS and stores it in Google BigQuery, enabling real-time and historica
           type: "notebook",
           content: "https://nbviewer.org/github/CassandraMzola/PortfolioProjects/blob/main/EarthquakeAnalysis/earthquake_analysis.ipynb?flush_cache=true",
           language: "python"
-        },
-        // Visuals
-        {
-          name: "depth_vs_magnitude.png",
-          type: "image",
-          content: depthVsMagnitude
-        },
-        {
-          name: "earthquakes_per_day.png",
-          type: "image",
-          content: earthquakesPerDay
-        },
-        {
-          name: "magnitude_categories.png",
-          type: "image",
-          content: magnitudeCategories
-        },
-        {
-          name: "magnitude_distribution.png",
-          type: "image",
-          content: magnitudeDistribution
-        },
-        {
-          name: "top_regions.png",
-          type: "image",
-          content: topRegions
-        },
-        {
-          name: "earthquake_map.html",
-          type: "file",
-          content: "/visuals/earthquake_map.html" // served from public folder
         },
       ],
     },
