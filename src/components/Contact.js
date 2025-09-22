@@ -1,9 +1,9 @@
-
 import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../styles/contact.css";
 import { User, Mail, MessageSquare, Send } from "react-feather";
+import emailjs from "emailjs-com";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,6 +12,7 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState(""); // <-- For feedback
 
   useEffect(() => {
     if (!formRef.current) return;
@@ -35,10 +36,29 @@ const Contact = () => {
   const handleSend = (e) => {
     e.preventDefault();
 
-    const mailtoUrl = `mailto:cassandramzola@gmail.com?subject=Contact from ${name}&body=${encodeURIComponent(
-      message
-    )}`;
-    window.open(mailtoUrl, "_blank");
+    emailjs
+      .send(
+        "service_5x6dnd8", // replace with your EmailJS service ID
+        "template_tvacgh6", // replace with your EmailJS template ID
+        {
+          from_name: name,
+          from_email: email,
+          message: message,
+        },
+        "9B7ZimOwRa_Ooh1SS" // replace with your EmailJS public key
+      )
+      .then(
+        () => {
+          setStatus("Message sent! ✅");
+          setName("");
+          setEmail("");
+          setMessage("");
+        },
+        (error) => {
+          console.error(error);
+          setStatus("Failed to send. Please try again. ❌");
+        }
+      );
   };
 
   return (
@@ -93,6 +113,9 @@ const Contact = () => {
           <button type="submit" className="contact-send-btn">
             Send Message <Send className="send-icon" />
           </button>
+
+          {/* Status feedback */}
+          {status && <p className="contact-status">{status}</p>}
         </form>
       </div>
     </section>
@@ -100,7 +123,6 @@ const Contact = () => {
 };
 
 export default Contact;
-
 
 
 
