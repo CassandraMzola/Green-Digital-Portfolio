@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { ReactTyped as Typed } from "react-typed";
 import { gsap } from "gsap";
 import "../styles/hero.css";
-import HeroAnimation from "../components/HeroAnimation";
+import HeroAnimation from "./HeroAnimation";
 
 const HeroSection = () => {
   const subtitleRef = useRef(null);
@@ -10,12 +10,10 @@ const HeroSection = () => {
   const buttonsRef = useRef(null);
 
   useEffect(() => {
-    gsap.set([subtitleRef.current, descRef.current, buttonsRef.current], {
-      opacity: 0,
-      y: 20,
-    });
+    const elements = [subtitleRef.current, descRef.current, buttonsRef.current];
 
-    gsap.to([subtitleRef.current, descRef.current, buttonsRef.current], {
+    gsap.set(elements, { opacity: 0, y: 20 });
+    gsap.to(elements, {
       opacity: 1,
       y: 0,
       duration: 0.6,
@@ -33,23 +31,23 @@ const HeroSection = () => {
             strings={["Hi there! I’m Cassandra."]}
             typeSpeed={50}
             backSpeed={30}
-            showCursor={true}
+            showCursor
           />
         </h1>
 
-        <div className="intro-subtitle" ref={subtitleRef}>
+        <p className="intro-subtitle" ref={subtitleRef}>
           I’m an{" "}
           <span className="intro-subtitle-name">
             Environmental Scientist & Data Analyst
           </span>{" "}
           passionate about sustainability.
-        </div>
+        </p>
 
-        <div className="intro-desc" ref={descRef}>
+        <p className="intro-desc" ref={descRef}>
           I’m a problem-solver at heart who loves turning concepts into actionable
           solutions. Whether analysing trends, developing strategies, or building
           community-focused projects, I thrive on making meaningful impact.
-        </div>
+        </p>
 
         <div className="intro-buttons" ref={buttonsRef}>
           <a
@@ -63,7 +61,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-     
       <div className="hero-right">
         <HeroAnimation />
       </div>
@@ -72,6 +69,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
-
 

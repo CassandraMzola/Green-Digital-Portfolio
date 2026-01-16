@@ -1,26 +1,23 @@
-
-
 .hero-animation {
   display: flex;
-  justify-content: flex-end;  
+  justify-content: center;
   align-items: center;
   flex: 1;
 }
 
 .hero-animation canvas,
 .hero-animation svg {
-  width: 550px !important;    
-  height: 550px !important;
-  max-width: 100%;
+  width: 100%;
+  max-width: 550px;
+  height: auto;
 }
-
 
 @media (max-width: 768px) {
   .hero-animation canvas,
   .hero-animation svg {
-    width: 300px !important;
-    height: 300px !important;
+    max-width: 300px;
   }
 }
+
 
 

@@ -1,12 +1,10 @@
-
-
 .hero {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   min-height: 100vh;
   padding: 0 100px;
-  background-color: #0a1f3c; 
+  background-color: #0a1f3c;
 }
 
 .hero-left {
@@ -17,33 +15,34 @@
 .hero-right {
   flex: 1;
   display: flex;
-  justify-content: flex; 
+  justify-content: center;
   align-items: center;
-  max-width: 400px; 
-  width: 300%; 
+  max-width: 400px;
+  width: 100%;
 }
 
 .hero-left h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   color: gold;
   margin-bottom: 20px;
 }
 
 .intro-subtitle {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   font-weight: 500;
   margin-bottom: 15px;
   background: linear-gradient(90deg, #ffffff, gold);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .intro-subtitle-name {
   font-weight: 700;
   color: gold;
 }
 
 .intro-desc {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   color: #ccc;
   line-height: 1.6;
   margin-bottom: 20px;
@@ -67,17 +66,18 @@
   color: #0a1f3c;
 }
 
-
 @media (max-width: 1200px) {
   .hero {
     flex-direction: column;
     text-align: center;
     padding: 0 40px;
   }
-  .hero-left, .hero-right {
+  .hero-left,
+  .hero-right {
     max-width: 100%;
   }
-  .intro-subtitle, .intro-desc {
+  .intro-subtitle,
+  .intro-desc {
     text-align: center;
     margin: 0 auto 15px auto;
   }
@@ -85,5 +85,6 @@
     justify-content: center;
   }
 }
+
 
 

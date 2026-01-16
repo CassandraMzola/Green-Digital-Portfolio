@@ -1,16 +1,14 @@
-
 import React from "react";
 import Lottie from "lottie-react";
 import globeAnimation from "../assets/animations/globe.json"; 
 
 const HeroAnimation = () => {
   return (
-    <div className="hero-animation">
+    <div className="hero-animation" aria-hidden="true">
       <Lottie 
         animationData={globeAnimation} 
-        loop={true} 
-        autoplay={true} 
-        style={{ width: "700px", height: "700px" }} 
+        loop 
+        autoplay 
       />
     </div>
   );
