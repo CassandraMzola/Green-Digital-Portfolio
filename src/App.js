@@ -26,14 +26,31 @@ function App() {
             <Route
               path="/"
               element={
-                <div id="home">
-                  <HeroSection />
-                  <About />
-                  <Experience />
-                  <Projects />
-                  <TechStack />
-                  <Contact />
-                </div>
+                <>
+                  <section id="hero">
+                    <HeroSection />
+                  </section>
+
+                  <section id="about">
+                    <About />
+                  </section>
+
+                  <section id="experience">
+                    <Experience />
+                  </section>
+
+                  <section id="projects">
+                    <Projects />
+                  </section>
+
+                  <section id="techstack">
+                    <TechStack />
+                  </section>
+
+                  <section id="contact">
+                    <Contact />
+                  </section>
+                </>
               }
             />
 
@@ -49,7 +66,6 @@ function App() {
 }
 
 export default App;
-
 
 
 
